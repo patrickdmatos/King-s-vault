@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL") // Você pode ajustar o nome do arquivo conforme necessário
+}
+
+model User {
+  id              Int               @id @default(autoincrement())
+  email           String            @unique
+  first_name      String
+  name            String
+  password        String
+  profession      String
+  monthly_income  Float
+  BankAccount     BankAccount[]
+}
+
+model BankAccount {
+  id             Int    @id @default(autoincrement())
+  userId         Int
+  bank           String
+  balance        Float
+  credit         Float
+  credit_invoice Float
+  BankTransaction BankTransaction[]
+  user           User   @relation(fields: [userId], references: [id])
+}
+
+model BankTransaction {
+  id          Int         @id @default(autoincrement())
+  bankId      Int
+  bank        String
+  value       Float
+  date        DateTime    @default(now())
+  description String
+  type        String
+  direction   String
+  bankAccount BankAccount @relation(fields: [bankId], references: [id])
+}
