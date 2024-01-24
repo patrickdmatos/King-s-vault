@@ -1,6 +1,5 @@
-import { Flex, Image } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import Sidebar from './SideBar'
-import code from '../../assets/code.png'
 
 export default function Navbar () {
     return (
@@ -15,7 +14,6 @@ export default function Navbar () {
         color={"white"}
       >
         <Sidebar />
-        <Image ml={-4} mb={-4} w="100px" src={code} alt="logo" />
       </Flex>
     )
 }

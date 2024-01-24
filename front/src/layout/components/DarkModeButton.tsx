@@ -1,6 +1,5 @@
 import { Box, Button, useColorMode } from '@chakra-ui/react'
-import { BsMoonStarsFill } from 'react-icons/bs'
-import { RiSunFoggyFill } from 'react-icons/ri'
+import { BsMoon, BsSun } from 'react-icons/bs'
 
 const DarkModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -9,25 +8,26 @@ const DarkModeButton = () => {
     <Box>
       {colorMode === 'light'
         ? (
-        <Button
-          onClick={toggleColorMode}
-            bg={colorMode === 'light' ? 'gray.200' : 'gray.600'}
-          _hover={{
-            bg: `{colorMode === 'light' ? 'gray.200' : 'gray.600'}`
-          }}>
-            <BsMoonStarsFill fontSize={26} />
-        </Button>
-          )
+          <Button
+            onClick={toggleColorMode}
+            bg="gray.300"
+            _hover={{
+              bgGradient: 'linear(to-r, blue.700, purple.800)',
+              color: 'white'
+            }}>
+            <BsMoon fontSize={26} />
+          </Button>
+        )
         : (
           <Button
             onClick={toggleColorMode}
-            bgGradient="linear(to-r, red.500, yellow.500)"
+            bg="gray.600"
             _hover={{
-              bgGradient: 'linear(to-r, gray.500, blue.800)'
+              bgGradient: 'linear(to-r, red.500, yellow.500)'
             }}>
-            <RiSunFoggyFill fontSize={26} />
+            <BsSun fontSize={26} />
           </Button>
-          )}
+        )}
     </Box>
   )
 }

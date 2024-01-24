@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import {NotAuthorized401, NotFouded404} from "./pages/errors/errorPages";
 import { VerifyToken } from "./auth/VerifyToken";
-import Layout from "./layout/Layout";
+import { Layout } from "./layout/Layout";
 import Login from "./pages/noAuth/login/Login";
 import { ChakraProvider } from '@chakra-ui/react'
 
