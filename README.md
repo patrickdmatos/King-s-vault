@@ -12,6 +12,7 @@ Certifique-se de ter os seguintes pré-requisitos instalados antes de iniciar o 
 - [Yarn](https://yarnpkg.com/) instalado
 - chakraUI
 - react-query
+- react-router-dom
 - FormMik
 - EmailJS
 - mutation
