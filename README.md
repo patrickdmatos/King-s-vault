@@ -10,6 +10,13 @@ Certifique-se de ter os seguintes pré-requisitos instalados antes de iniciar o 
 
 - [Node.js](https://nodejs.org/) (versão recomendada: 14.x)
 - [Yarn](https://yarnpkg.com/) instalado
+- chakraUI
+- react-query
+- react-router-dom
+- FormMik
+- EmailJS
+- mutation
+- Axios
 
 ## Aplicação de desenvolvimento 
 yarn start:dev
