@@ -2,6 +2,7 @@ import { Input, Textarea, Button, Flex, Modal, ModalContent, ModalHeader, ModalC
 import emailjs from 'emailjs-com'
 import React, { useState } from 'react'
 // import { useFilterAllUser } from './hooks/useFilterAllUser'
+import componentKey from '../key/keyComponent'
 
 const EmailForm = () => {
   const toast = useToast()
@@ -46,14 +47,16 @@ const EmailForm = () => {
     }
   }
 
-  const sendEmail = async (e: { preventDefault: () => void; target: { email: { value: string } } }) => {
+  const sendEmail = async (e) => {
+    e.preventDefault()
+
     const userEmail = e.target.email.value.toLowerCase().trim()
     // const userExists = dadosUsuario.find(user => user.email.toLowerCase() === userEmail)
 
     // if (userExists) {
     setSubmittedEmail(userEmail)
     setPassword('userExists.password')
-    sendPasswordResetEmail()
+    sendPasswordResetEmail(userEmail, 'userExists.password')
     // } else {
     //   toast({
     //     title: 'Email não localizado.',
@@ -67,7 +70,7 @@ const EmailForm = () => {
   }
 
   return (
-    <Flex>
+    <Flex key={componentKey}>
       <Button
         _hover={{ color: 'blue.400', bg: 'transparent' }}
         color={'blue.700'}

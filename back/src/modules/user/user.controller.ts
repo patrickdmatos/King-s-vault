@@ -25,8 +25,6 @@ export class UserController {
 
   @Post('login')
   async SingInUser (@Body() userData: UserDTO) {
-    console.log(userData)
-
     await this.userService.SingIn(userData.email, userData.password)
   }
 }

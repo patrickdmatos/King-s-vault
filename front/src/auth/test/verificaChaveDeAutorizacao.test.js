@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
-import { setKey, VerifyToken } from '../verificaChaveDeAutorizacao'
+import { setKey, verificarChave } from '../verificaChaveDeAutorizacao'
 
 describe('Testes para as funções de localStorage', () => {
   let localStorageMock = {}
@@ -33,21 +33,21 @@ describe('Testes para as funções de localStorage', () => {
     expect(localStorageMock.getItem(chave)).toBe(valor)
   })
 
-  test('VerifyToken deve retornar o valor correspondente à chave no localStorage simulado', () => {
+  test('verificarChave deve retornar o valor correspondente à chave no localStorage simulado', () => {
     const chave = 'testChave'
     const valor = 'testValor'
 
     setKey(chave, valor)
 
-    const valorRetornado = VerifyToken(chave)
+    const valorRetornado = verificarChave(chave)
 
     expect(valorRetornado).toBe(valor)
   })
 
-  test('VerifyToken deve retornar null se a chave não existir no localStorage simulado', () => {
+  test('verificarChave deve retornar null se a chave não existir no localStorage simulado', () => {
     const chaveInexistente = 'chaveInexistente'
 
-    const valorRetornado = VerifyToken(chaveInexistente)
+    const valorRetornado = verificarChave(chaveInexistente)
 
     expect(valorRetornado).toBeNull()
   })
