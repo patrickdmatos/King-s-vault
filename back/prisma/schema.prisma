@@ -11,11 +11,10 @@ model User {
   id              Int               @id @default(autoincrement())
   email           String            @unique
   first_name      String
-  name            String
+  second_name     String?
   password        String
-  profession      String
-  monthly_income  Float
   BankAccount     BankAccount[]
+  BankTransaction BankTransaction[]
 }
 
 model BankAccount {
@@ -30,13 +29,16 @@ model BankAccount {
 }
 
 model BankTransaction {
-  id          Int         @id @default(autoincrement())
-  bankId      Int
-  bank        String
-  value       Float
-  date        DateTime    @default(now())
-  description String
-  type        String
-  direction   String
-  bankAccount BankAccount @relation(fields: [bankId], references: [id])
+  id             Int      @id @default(autoincrement())
+  userId         Int?
+  bankAccountId  Int?
+  value          Float
+  date           DateTime @default(now())
+  description    String
+  category       String?
+  direction      String
+  implemented    Boolean @default(false)
+  paymentMethod  String?
+  user           User?     @relation(fields: [userId], references: [id])
+  bankAccount    BankAccount? @relation(fields: [bankAccountId], references: [id])
 }

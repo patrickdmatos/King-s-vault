@@ -31,6 +31,7 @@ export default function Routes () {
     {
       path: '/',
       children: [
+        { path: '', element: <NoAuthHome /> },
         { path: '/home', element: <NoAuthHome /> },
         { path: '/login', element: <Logar /> },
         { path: '/Create-Account', element: <Registrar /> },

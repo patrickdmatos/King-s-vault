@@ -17,7 +17,7 @@ export default function NoAuthHome () {
       </Heading>
       <Text fontWeight={'bold'}>Your finance control app</Text>
       <Image src={cofrepng} />
-      <Button onClick={navigate('/login')}>
+      <Button onClick={() => { navigate('/login') }}>
         Fazer Login
       </Button>
     </VStack>
