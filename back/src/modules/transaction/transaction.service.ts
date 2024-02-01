@@ -10,13 +10,14 @@ export class BankTransactionService {
     try {
       const createdTransaction = await this.prisma.bankTransaction.create({
         data: {
-          bankId: transactionData.bankId,
-          bank: transactionData.bank,
+          bankAccountId: transactionData.bankAccountId,
           value: transactionData.value,
           date: new Date(transactionData.date),
           description: transactionData.description,
-          type: transactionData.type,
-          direction: transactionData.direction
+          category: transactionData.category,
+          direction: transactionData.direction,
+          implemented: transactionData.implemented,
+          paymentMethod: transactionData.paymentMethod
         }
       })
 

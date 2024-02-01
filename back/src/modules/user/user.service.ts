@@ -20,19 +20,9 @@ export class UserService {
         data: {
           email: user.email,
           first_name: 'user.first_name',
-          name: 'user.name',
+          second_name: 'user.name',
           password: user.password,
-          profession: 'user.profession',
-          monthly_income: 10,
           BankAccount: { create: [] }
-          // {
-          //   create: bankAccount.map((account) => ({
-          //     bank: account.bank,
-          //     balance: account.balance,
-          //     credit: account.credit,
-          //     credit_invoice: account.credit_invoice,
-          //   })),
-          // },
         }
       })
       return createdUser

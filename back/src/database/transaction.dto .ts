@@ -1,10 +1,11 @@
 export interface BankTransactionDTO {
   id?: number
-  bankId: number
-  bank: string
+  bankAccountId: number
   value: number
   date: string
   description: string
-  type: string
+  category: string
   direction: string
+  implemented: boolean
+  paymentMethod: string
 }

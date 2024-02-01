@@ -14,7 +14,6 @@ model User {
   second_name     String?
   password        String
   BankAccount     BankAccount[]
-  BankTransaction BankTransaction[]
 }
 
 model BankAccount {
@@ -30,15 +29,13 @@ model BankAccount {
 
 model BankTransaction {
   id             Int      @id @default(autoincrement())
-  userId         Int?
-  bankAccountId  Int?
+  bankAccountId  Int
   value          Float
   date           DateTime @default(now())
   description    String
-  category       String?
+  category       String
   direction      String
   implemented    Boolean @default(false)
-  paymentMethod  String?
-  user           User?     @relation(fields: [userId], references: [id])
-  bankAccount    BankAccount? @relation(fields: [bankAccountId], references: [id])
+  paymentMethod  String
+  bankAccount    BankAccount @relation(fields: [bankAccountId], references: [id])
 }
